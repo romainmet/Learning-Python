@@ -1,0 +1,23 @@
+"""Count words."""
+count={}
+
+def count_words(s, n):
+    """Return the n most frequently occuring words in s."""
+
+    wordlist = s.split()
+    wordfreq = [wordlist.count(p) for p in wordlist]
+    zip_l=dict(zip(wordlist,wordfreq))
+    sort=sorted(zip_l.iteritems(),key=lambda(k,v):(-v,k))
+    top_n=sort[0:n]
+    return top_n
+
+def test_run():
+    """Test count_words() with some inputs."""
+    print count_words("cat bat mat cat bat cat", 3)
+    print count_words("betty bought a bit of butter but the butter was bitter", 3)
+
+if __name__ == '__main__':
+    test_run()
+
+
+
